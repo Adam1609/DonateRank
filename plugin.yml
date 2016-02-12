@@ -19,6 +19,9 @@ permissions:
           donrank.ranks.list:
           default: true
           description: Shows list of Recorded Ranks
+		  donrank.ranks.nick
+		  defualt: true
+		  description: Lets the player Give
         #donrank.rankgrp:
           #default: op
           #description: Main Permission for adding and deleting ranks 
