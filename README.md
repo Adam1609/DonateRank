@@ -13,7 +13,7 @@ a custom Phone number for $$ deposit.
 ***
 
 ## [WARNING] BEFORE COMPILING TO PHAR MANUALLY:
-[WARNING] BEFORE COMPILING THIS PLUGIN TO PHAR, DELEVE .vs FOLDER AND DonatorRank.sln
+[WARNING] BEFORE COMPILING THIS PLUGIN TO PHAR, DELEVE .vs FOLDER, DonatorRank.sln FILE AND DonatorRank.phpproj
 
 
 # Commands:
