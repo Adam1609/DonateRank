@@ -13,7 +13,7 @@ a custom Phone number for $$ deposit.
 | :---: | :---: | :---: |
 | /donate | | Main Command of the plugin |
 | /donate | rlist | Gives rank list |
-| /donate | <Nick> <rank> | Request rank to selected Nick |
+| /donate | (Nick) (rank) | Request rank to selected Nick |
 
 ### Permissions:
 At the Wiki,
