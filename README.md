@@ -1,4 +1,6 @@
 # DonateRank
+![LEL](https://github.com/TheKillerTacos/DonateRank/blob/master/DonatorRankHeader.png)
+
 DonateRank, A plugin that Helps you out with Donations
 
 > Requested By MikkiMCPE
@@ -22,4 +24,7 @@ a custom Phone number for $$ deposit.
 | /donate | (Nick) (rank) | Request rank to selected Nick |
 
 ### Wiki:
-* 
+* [Permissions](https://github.com/TheKillerTacos/DonateRank/wiki/Permissions)
+* [Commands](https://github.com/TheKillerTacos/DonateRank/wiki/Commands)
+* [Config](https://github.com/TheKillerTacos/DonateRank/wiki/Config)
+
