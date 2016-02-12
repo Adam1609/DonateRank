@@ -12,12 +12,9 @@ a custom Phone number for $$ deposit.
 | Command | Subcommand | Description |
 | :---: | :---: | :---: |
 | /donate | | Main Command of the plugin |
-| /donate | rank <Rank> | Request for selected rank |
-| /donate | rank list | Shows list of avialable Ranks* |
-| /donate | add <rank> | Adds a rank**, OP ONLY |
-| /donate | delete <rank> | Deletes a rank**, OP ONLY |
-| /donate | desc <rank> | Adds a description to Rank, OP ONLY |
+| /donate | rlist | Gives rank list |
+| /donate | <Nick> <rank> | Request rank to selected Nick |
 
 ### Permissions:
 At the Wiki,
-Which soon will be done, (after finishing plugin)
+Which soon will be created :L
