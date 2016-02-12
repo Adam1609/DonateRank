@@ -10,6 +10,9 @@ a custom Phone number for $$ deposit.
 
 ***
 
+## [WARNING] BEFORE COMPILING TO PHAR MANUALLY:
+[WARNING] BEFORE COMPILING THIS PLUGIN TO PHAR, DELEVE .vs FOLDER AND DonatorRank.sln
+
 
 # Commands:
 | Command | Subcommand | Description |
