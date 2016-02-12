@@ -1,98 +1,62 @@
 <?php
 
-use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\permission\Permission;
-use pocketmine\event\Listener;
+namespace DonationRank;
+//Todo:
+//Rewrite Code
+//Make folder Generator
 
+use pocketmine\plugin\PluginBase; //Plugin base, without this, the plugin is F**ked
+use pocketmine\command\Command; //Commands
+use pocketmine\command\CommandSender; //Send Commands
+use pocketmine\permission\Permission; // Get Permissions from plugin.yml
+use pocketmine\event\Listener; //The heck is this....
+use pocketmine\Player; //get player functions
+use pocketmine\utils\Config; // Acces and creation of Config files?
+use pocketmine\utils\TextFormat; // Maybe for colors
 
-class Main extends PluginBase implements Listener{
-	
+class Main extends Base implements Listener{
+
 	public function onEnable(){
-		$this->getLogger()->info(TextFormat::BlUE."Loading Plugin...");
 		$this->saveDefaultConfig();
-
-			$this->getLogger()->info(TextFormat::YELLOW."Backup Folder Created/Loaded");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if(!(is_dir($this->getDataFolder()."Pending_Users/"))){
-			@mkdir($this->getDataFolder()."Pending_Users/");
-			$this->getLogger()->info(TextFormat::YELLOW."Folder P_U Generated/Loaded");
+		if(!(is_dir($this->getDataFolder()."Activated_Players/"))){
+			@mkdir($this->getDataFolder()."Activated_Players/");
+		$this->getLogger()->info(TextFormat::GREEN . "Folder Activated_Players Created!");
+		$this->getLogger()->info(TextFormat::YELLOW . "This Folder will store activated/ranked players");
 		}
-		if(!(is_dir($this->getDataFolder()."Activated_Users/"))){
-			@mkdir($this->getDataFolder()."Activated_Users/");
-			$this->getLogger()->info(TextFormat::YELLOW."Folder A_U Generated/Loaded");
+			$logformat = $this->getConfig()
+			if(file_exists($this->getDataFolder()."/log.".$logformat)){
+			$file = $this->getDataFolder()."/log.".$logformat;
+			unlink($file);
+			$newFile = fopen($file, "a+");
+			$this->getLogger()->info(TextFormat::GREEN."Log Created!");
+			return true;
+			}else{
+			$this->getLogger()->info(TextFormat::RED."Could create log.".$logformat)
+			$this->getLogger()->info(TextFormat::RED."IDK What happend, maybe the plugin path is protected?")
+			return true;
+			}
+		if(!(is_dir($this->getDataFolder()."Pending_Players/"))){
+			@mkdir($this->getDataFolder()."Pending_Players/");
+		$this->getLogger()->info(TextFormat::GREEN . "Folder Pending_Players Created!");
+		$this->getLogger()->info(TextFormat::YELLOW . "This Folder Will store Pending players");
 		}
-		if(!(is_dir($this->getDataFolder()."Backups/"))){
-			@mkdir($this->getDataFolder()."Backups/");
-		}
-		
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		if($this->getConfig()->get("AllEnableStart") == "true"){
-			$this->allEnabled = "true";
-		}else{
-			$this->allEnabled = "false";
-		}
-		$this->playersEnabled = array();
-		$this->getLogger()->info(TextFormat::GREEN."Plugin Loaded!");
+		$this->getLogger()->info(TextFormat::BLUE . "Done, Plugin Loaded.");
 	}
 	public function onDisable(){
-		$minute = $this->time()
-		$this->getLogger()->info(TextFormat::RED."Donation Rank Disabled!");
-		$this->getLogger()->info(TextFormat::YELLOW."Making Plugin backup...");
+		$this->getLogger()->info(TextFormat::RED . "PLUGIN UNLOADED!!");
+		$this->getLogger()->info(TextFormat::RED . "Creating Backup!");
 		$zip = new ZipArchive();
-		$filename = "Backups/Backup".$minute.".zip";
+		$randNumber = for ($i = 0; $i<6; $i++){
+		 $a .= mt_rand(0000,9999);
+		}
+		$filename = "Backups/Backup".$randNumber.".zip";
 
 		if ($zip->open($filename, ZipArchive::CREATE)!==TRUE) {
-			exit("ERROR, Cannon create ".$filename."\n");
+			$this->getLogger()->info(TextFormat::RED."ERROR, Cannon create ".$filename."");
 		}
-		$zip->addFile($thisdir . "Pending_Users/*","/Activated_Users/*");
+		$zip->addFile($thisdir . "Pending_Players/","/Activated_Players/");
 		echo "numfiles: " . $zip->numFiles . "\n";
 		echo "status:" . $zip->status . "\n";
 		$zip->close();
 	}
-
-	if(strtolower($command->getName()) == "donation"){
-			if(!(isset($args[0]))){
-				if ($sender->hasPermission("donrank")){
-					$sender->sendMessage(TextFormat::RED."---------DonateRank--------");
-					$sender->sendMessage(TextFormat::YELLOW."--No subcommands provided--");
-					$sender->sendMessage(TextFormat::GREEN."/donation rank <rank> - Claim a rank");
-					$sender->sendMessage(TextFormat::BLUE."/donation rank list - shows a list of ranks available");
-					$sender->sendMessage(TextFormat::GREEN."/donation add <rank> - adds a rank to the list (OP)");
-					$sender->sendMessage(TextFormat::BLUE."/donation delete <rank> - deletes a rank to the list (OP)");
-			}else{
-				return true;
-			}elseif(isset($args[0])){
-				if($args[0] == "rank"){
-					if ($sender->hasPermission("donrank.ranks")){
-					$sender->sendMessage(TextFormat::RED."[DonateRank] No Subcommand Written:");
-					$sender->sendMessage(TextFormat::YELLOW."Use: /donate rank <rank> - to claim a rank");
-					$sender->sendMessage(TextFormat::YELlOW."Use: /donate rank list - to get a list of ranks");
-					}else{
-					$sender->sendMessage($this->permMessage);
-					return true;
-					}
-					}else{
-						$sender->sendMessage(TextFormat::RED . "[DonateRank] What? X125");
-						return true;
-					}
-				}elseif($args[1] == "rank list"){
-					if ($sender->hasPermission("donrank.rank.list")){
-						$ranklist1 = $
-					$sender->sendMessage(TextFormat::RED."[DonateRank] Ranks availables:");
-					$sender->sendMessage(TextFormat::GRAY. $ranklist1);
-					$sender->sendMessage(TextFormat::WHITE. $ranklist2);
-					$sender->sendMessage(TextFormat::GRAY. $ranklist3);
-					$sender->sendMessage(TextFormat::WHITE. $ranklist4);
-					$sender->sendMessage(TextFormat::GRAY. $ranklist5);
-					$sender->sendMessage(TextFormat::WHITE. $ranklist6);
-					}else{
-					$sender->sendMessage($this->permMessage);
-					return true;
-					}
-				}elseif{
-					
-					
-				}
-				// Plugin is still in progress, just saving it for Backup
