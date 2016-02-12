@@ -8,6 +8,9 @@ This plugin will give the player the rank they want
 and gives them the payment method. by requested, it will give 
 a custom Phone number for $$ deposit.
 
+***
+
+
 # Commands:
 | Command | Subcommand | Description |
 | :---: | :---: | :---: |
@@ -15,6 +18,5 @@ a custom Phone number for $$ deposit.
 | /donate | rlist | Gives rank list |
 | /donate | (Nick) (rank) | Request rank to selected Nick |
 
-### Permissions:
-At the Wiki,
-Which soon will be created :L
+### Wiki:
+* 
